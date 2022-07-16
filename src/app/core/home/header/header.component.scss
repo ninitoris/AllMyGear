@@ -3,7 +3,74 @@
     width: 1300px;
     height: 275px;
     border: 1px solid red;
-    background-image: url("../../../shared/media/kaykingpic.png"); //TODO: upload this img
+    background-image: url("/assets/images/kaykingpic.png"); //TODO: upload this img
     border-radius: 0px 0px 20px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 
+$side-margin: 96px;
+$dev-border: 1px;
+#leftside{
+    border: $dev-border solid lime;
+    // width: 500px;
+    align-self: center;
+    height: 50px; 
+    margin-left: $side-margin;
+    flex: 2;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(max-content, max-content));
+    gap: 1em;
+    justify-content: left;
+    align-items: center;
+}
+
+#logo{
+    // display: inline-flex;
+    border: $dev-border solid lime;
+    align-self: center;
+}
+
+#rightside{
+    align-self:center; 
+    width: 144px;
+    height: 50px;
+    display: inline-flex;
+    border: $dev-border solid lime;
+    margin-right: $side-margin;
+    flex-direction: row-reverse;
+    flex: 2;
+    align-items: center;
+}
+
+#menu-button{
+    height: 50px;
+    width: 50px;
+    display: inline-flex;
+    border: $dev-border white solid;
+}
+
+
+#userpic{
+    border: 1px solid white;
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+    display: inline-block;
+}
+
+#username{
+    display: inline-flex;
+    color: white;
+    font-family: "Cabin-Regular";
+    font-weight: 400;
+    font-size: 18px;
+}
+
+#switches{
+    border: $dev-border solid white;
+    justify-content: center;
+    height: 50px;
+    width: 150px;
 }
