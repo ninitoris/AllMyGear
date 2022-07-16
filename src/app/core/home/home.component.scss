@@ -1,0 +1,11 @@
+.wrapper{
+    height: 2053px;
+    width: 1440px;
+    background: linear-gradient(180deg, rgba(20, 20, 20, 0.9) 8.65%, rgba(78, 78, 78, 0.87) 160.29%, rgba(255, 255, 255, 0) 160.3%);
+}
+
+#header-container{
+    display: flex;
+    // align-items: center; //aligns vertically - not needed?
+    justify-content: center;
+}
