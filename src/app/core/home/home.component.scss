@@ -1,12 +1,23 @@
+@import "/src/assets/shared/global.scss";
+
 .wrapper{
-    height: 2053px;
-    width: 1440px;
-    background: linear-gradient(180deg, rgba(20, 20, 20, 0.9) 8.65%, rgba(78, 78, 78, 0.87) 160.29%, rgba(255, 255, 255, 0) 160.3%);
+  height: 2053px;
+  width: 100%;
+  background: linear-gradient(180deg, rgba(20, 20, 20, 0.9) 8.65%, rgba(78, 78, 78, 0.87) 160.29%, rgba(255, 255, 255, 0) 160.3%);
+  border: $dev-border solid pink;
 }
 
 #header-container{
-    display: flex;
-    flex-direction: row;
-    // align-items: center; //aligns vertically - not needed?
-    justify-content: center;    
+  // display: flex;
+  flex-direction: row;
+  // align-items: center; //aligns vertically - not needed?
+  justify-content: center;
+  width: 90%;
+  margin: auto;
+}
+
+#checklist-container{
+  width: 90%;
+  min-height: 1000px;
+  border: $dev-border solid red;
 }

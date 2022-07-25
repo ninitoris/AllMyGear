@@ -1,22 +1,23 @@
+@import "/src/assets/shared/global.scss";
+
 .wrapper{
     position: relative;
-    width: 1300px;
     height: 275px;
-    border: 1px solid red;
+    border: $dev-border solid yellow;
     background-image: url("/assets/images/kaykingpic.png"); //TODO: upload this img
+    background-position: center;
     border-radius: 0px 0px 20px 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-$side-margin: 96px;
-$dev-border: 1px;
+$side-margin: 31px;
 #leftside{
     border: $dev-border solid lime;
     // width: 500px;
     align-self: center;
-    height: 50px; 
+    height: 50px;
     margin-left: $side-margin;
     flex: 2;
     display: grid;
@@ -33,7 +34,7 @@ $dev-border: 1px;
 }
 
 #rightside{
-    align-self:center; 
+    align-self:center;
     width: 144px;
     height: 50px;
     display: inline-flex;
@@ -53,7 +54,7 @@ $dev-border: 1px;
 
 
 #userpic{
-    border: 1px solid white;
+    border: $dev-border solid white;
     height: 50px;
     width: 50px;
     border-radius: 25px;
