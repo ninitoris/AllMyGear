@@ -1,5 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, Subject } from 'rxjs';
+import { checklistModel } from '../models/checklist.model';
+import { gearItem } from '../models/gear-item.model';
+import { relationshipsModel } from '../models/relationships.model';
 
 const myGear = [
   {
@@ -112,17 +116,17 @@ const itemChecklistRelations = [
 })
 export class MyGearService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getMyGearList(){
-    return myGear;
+    return this.http.get<gearItem[]>('api/myGear');
   }
 
   getMyChecklists(){
-    return myChecklists
+    return this.http.get<checklistModel[]>('api/checklists')
   }
 
   getRelations(){
-    return itemChecklistRelations
+    return this.http.get<relationshipsModel[]>('api/rels')
   }
 }

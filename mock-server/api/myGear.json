@@ -1,0 +1,62 @@
+[
+  {
+    "itemNum": 1,
+    "itemName": "Tent 2P",
+    "manufacturer": "Red Fox",
+    "model": "Challenger 2",
+    "year": "2012",
+    "price": "170$",
+    "weightKG": "2.6",
+    "group": "Shelter"
+  },
+  {
+    "itemNum": 2,
+    "itemName": "Camping tent 6P",
+    "manufacturer": "asdf",
+    "model": "qwre",
+    "year": "2012",
+    "price": "170$",
+    "weightKG": "9.7",
+    "group": "Shelter"
+  },
+  {
+    "itemNum": 3,
+    "itemName": "Bed item 123",
+    "manufacturer": "asdf",
+    "model": "qwre",
+    "year": "2012",
+    "price": "170$",
+    "weightKG": "9.7",
+    "group": "Bed"
+  },
+  {
+    "itemNum": 3,
+    "itemName": "Kitchen item 123",
+    "manufacturer": "asdf",
+    "model": "qwre",
+    "year": "2012",
+    "price": "170$",
+    "weightKG": "9.7",
+    "group": "Kitchen"
+  },
+  {
+    "itemNum": 4,
+    "itemName": "Cook set",
+    "manufacturer": "asdf",
+    "model": "qwre",
+    "year": "2012",
+    "price": "170$",
+    "weightKG": "0.795",
+    "group": "Kitchen"
+  },
+  {
+    "itemNum": 5,
+    "itemName": "Knife",
+    "manufacturer": "asdf",
+    "model": "qwre",
+    "year": "2012",
+    "price": "170$",
+    "weightKG": "0.1",
+    "group": "Kitchen"
+  }
+]

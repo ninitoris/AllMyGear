@@ -1,9 +1,9 @@
-<div class="wrapper dnd-boundary">
+<div class="wrapper dnd-boundary" *ngIf="gearItemsLoaded | async">
   <div class="myGear checklist">
     <div class="header">
       My Gear
     </div>
-    <div class="group" *ngFor="let groupItem of groupsList">
+    <div class="group"  *ngFor="let groupItem of groupsList">
       <app-group  [groupname]=groupItem [items]=gearListByGroups[groupItem]></app-group>
     </div>
   </div>

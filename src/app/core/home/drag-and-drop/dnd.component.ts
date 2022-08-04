@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { forkJoin } from 'rxjs';
 import { checklistModel } from 'src/app/shared/models/checklist.model';
 import { gearItem } from 'src/app/shared/models/gear-item.model';
 import { relationshipsModel } from 'src/app/shared/models/relationships.model';
@@ -37,40 +38,55 @@ export class DndComponent implements OnInit {
     [key: number]: gearItem[]
   } = {}
 
+  allItems: gearItem[] = [];
+
+  gearItemsLoaded: Promise<boolean> | undefined;
+
+
   ngOnInit(): void {
-    //put gear items into arrays
-    let allItems = this.gearService.getMyGearList()
-    allItems.forEach((el)=>{
-      let group = el["group"]
-      if (group){
-        if (this.gearListByGroups[group] === undefined){
-          this.gearListByGroups[group] = []
-        }
-        this.gearListByGroups[group].push(el)
-      } else
-      this.gearListByGroups["undefined"].push(el)
+    let allItemsSubscription = this.gearService.getMyGearList();
+    let checklistSubsription = this.gearService.getMyChecklists();
+    let relationsSubscription = this.gearService.getRelations();
 
-      this.gearListGroupedByNum[el.itemNum] = el
-    })
+    forkJoin([allItemsSubscription, checklistSubsription, relationsSubscription]).subscribe(
+      (res)=>{
 
-    //get list of groups
-    this.groupsList = Object.keys(this.gearListByGroups)
+        this.allItems = res[0];
+        this.checklists = res[1];
+        let rels:relationshipsModel[] = res[2];
 
-    //get checklists
-    this.checklists = this.gearService.getMyChecklists()
+        this.allItems.forEach((el)=>{
+          let group = el["group"]
+          if (group){
+            if (this.gearListByGroups[group] === undefined){
+              this.gearListByGroups[group] = []
+            }
+            this.gearListByGroups[group].push(el)
+          } else
+          this.gearListByGroups["undefined"].push(el)
 
-    this.checklists.forEach((chl)=>{
-      this.checklistsConnections.push ('dnd-checklist-' + chl.checklistNum)
-    })
+          this.gearListGroupedByNum[el.itemNum] = el
+        })
 
-    //get relations between checklists and gear items
-    let rels:relationshipsModel[] = this.gearService.getRelations()
-    rels.forEach((rel)=>{
-      let checklistNum = rel.checklistNum
-      let itemNum = rel.itemNum
-      if (this.checklistsWithItems[checklistNum] === undefined)
-        this.checklistsWithItems[checklistNum] = []
-      this.checklistsWithItems[checklistNum].push(this.gearListGroupedByNum[itemNum])
-    })
+        //get list of groups
+        this.groupsList = Object.keys(this.gearListByGroups)
+
+
+        this.checklists.forEach((chl)=>{
+          this.checklistsConnections.push ('dnd-checklist-' + chl.checklistNum)
+        })
+
+        rels.forEach((rel)=>{
+          let checklistNum = rel.checklistNum
+          let itemNum = rel.itemNum
+          if (this.checklistsWithItems[checklistNum] === undefined)
+            this.checklistsWithItems[checklistNum] = []
+          this.checklistsWithItems[checklistNum].push(this.gearListGroupedByNum[itemNum])
+        })
+
+        this.gearItemsLoaded = Promise.resolve(true)
+
+      }
+    )
   }
 }
