@@ -29,6 +29,9 @@ export class DndComponent implements OnInit {
   //array of checklists
   checklists: checklistModel[] = []
 
+  //array of checklists' divs' ids used for drag n drop
+  checklistsConnections: string[] = []
+
   //array of gear items grouped by checklist num
   checklistsWithItems: {
     [key: number]: gearItem[]
@@ -56,6 +59,10 @@ export class DndComponent implements OnInit {
     //get checklists
     this.checklists = this.gearService.getMyChecklists()
 
+    this.checklists.forEach((chl)=>{
+      this.checklistsConnections.push ('dnd-checklist-' + chl.checklistNum)
+    })
+
     //get relations between checklists and gear items
     let rels:relationshipsModel[] = this.gearService.getRelations()
     rels.forEach((rel)=>{
@@ -65,9 +72,5 @@ export class DndComponent implements OnInit {
         this.checklistsWithItems[checklistNum] = []
       this.checklistsWithItems[checklistNum].push(this.gearListGroupedByNum[itemNum])
     })
-    console.log(this.checklistsWithItems)
   }
-
-
-
 }

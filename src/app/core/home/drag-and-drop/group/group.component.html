@@ -4,8 +4,16 @@
     <span class="switches expand"></span>
     <span class="switches dnd"></span>
   </div>
-  <div class="item" *ngFor="let item of items">
-    <app-item [item]=item></app-item>
+  <div
+    class="items"
+    id="dnd-group"
+    cdkDropList
+    [cdkDropListData]="items"
+    (cdkDropListDropped)="drop($event)"
+    [cdkDropListConnectedTo]="allchecklists">
+    <div class="item" *ngFor="let item of items">
+      <app-item [item]=item></app-item>
+    </div>
   </div>
 </div>
 
