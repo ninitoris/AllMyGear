@@ -14,10 +14,11 @@
   justify-content: center;
   width: 90%;
   margin: auto;
+  max-width: 1300px;
 }
 
 #checklist-container{
+  margin: auto;
   width: 90%;
-  min-height: 1000px;
-  border: $dev-border solid red;
+  max-width: 1300px;
 }

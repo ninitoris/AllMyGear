@@ -1,0 +1,22 @@
+[
+  {
+    "itemNum": 1,
+    "itemName": "Tent 2P",
+    "manufacturer": "Red Fox",
+    "model": "Challenger 2",
+    "year": 2012,
+    "price": "170$",
+    "weightKG": "2.6",
+    "group": "Shelter"
+  },
+  {
+    "itemNum": 2,
+    "itemName": "Camping tent 6P",
+    "manufacturer": "asdf",
+    "model": "qwre",
+    "year": 2012,
+    "price": "170$",
+    "weightKG": "9.7",
+    "group": "Shelter"
+  }
+]
