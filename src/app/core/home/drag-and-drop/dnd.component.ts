@@ -42,7 +42,7 @@ export class DndComponent implements OnInit {
 
   gearItemsLoaded: Promise<boolean> | undefined;
 
-
+/*
   ngOnInit(): void {
     let allItemsSubscription = this.gearService.getMyGearList();
     let checklistSubsription = this.gearService.getMyChecklists();
@@ -88,5 +88,13 @@ export class DndComponent implements OnInit {
 
       }
     )
+  }
+  */
+  ngOnInit(): void{
+    let allItemsSubscription = this.gearService.getMyGearList();
+    allItemsSubscription.subscribe((res)=>{
+      this.allItems = res;
+
+    })
   }
 }

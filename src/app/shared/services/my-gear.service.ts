@@ -119,7 +119,7 @@ export class MyGearService {
   constructor(private http: HttpClient) { }
 
   getMyGearList(){
-    return this.http.get<gearItem[]>('api/myGear');
+    return this.http.get<gearItem[]>('api/gearitem');
   }
 
   getMyChecklists(){
