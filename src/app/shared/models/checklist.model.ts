@@ -1,4 +1,4 @@
 export class checklistModel {
-  checklistNum!: number;
-  checklistName: string | undefined;
+  checklistid!: number;
+  checklistname: string | undefined;
 }

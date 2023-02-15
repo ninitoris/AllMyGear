@@ -1,16 +1,17 @@
+/**GearItem is the one item of user's equipment */
 export class gearItem {
-  gearitemid      : number | undefined;
+  gearitemid!     : number;
   customname      : string | undefined;
   category        : string | undefined;
   brandname       : string | undefined;
   productname     : string | undefined;
-  weightkg!       : { value :number, validflag: boolean };
-  quantity!       : { value :number, validflag: boolean };
-  userid!         : { value :number, validflag: boolean };
+  weightkg        : number | undefined;
+  quantity        : number | undefined;
+  userid          : number | undefined;
   picture         : string | undefined;
   cost            : string | undefined;
-  tempfromcelc!   : { value :number, validflag: boolean };
-  tempuptocelc!   : { value :number, validflag: boolean };
+  tempfromcelc    : number | undefined;
+  tempuptocelc    : number | undefined;
   datepurchased   : string | undefined;
   dateadded       : string | undefined;
   notes           : string | undefined;

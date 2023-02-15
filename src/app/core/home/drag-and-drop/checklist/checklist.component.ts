@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { checklistModel } from 'src/app/shared/models/checklist.model';
 import { gearItem } from 'src/app/shared/models/gear-item.model';
 import {CdkDragDrop, copyArrayItem, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import { MyGearService } from 'src/app/shared/services/my-gear.service';
 
 @Component({
   selector: 'app-checklist',
@@ -16,9 +17,15 @@ export class ChecklistComponent implements OnInit {
 
   checkListitems: gearItem[] = []
 
-  constructor() { }
+  constructor(private gearService: MyGearService) { }
 
   ngOnInit(): void {
+    console.log('checklist init');
+    this.gearService.getItemsForChecklist(this.checklist.checklistid).subscribe(res =>{
+      this.checkListitems = res;
+      console.log(`checklist ${this.checklist.checklistid} got res:`);
+      console.log(res);
+    })
   }
 
   drop(event: CdkDragDrop<gearItem[] | undefined>) {

@@ -4,7 +4,8 @@ import { Observable, of, Subject } from 'rxjs';
 import { checklistModel } from '../models/checklist.model';
 import { gearItem } from '../models/gear-item.model';
 import { relationshipsModel } from '../models/relationships.model';
-
+/*
+удалить:
 const myGear = [
   {
     "itemNum": 1,
@@ -67,7 +68,6 @@ const myGear = [
     "group": "Kitchen"
   }
 ]
-
 const myChecklists = [
   {
     "checklistNum": 1,
@@ -82,8 +82,6 @@ const myChecklists = [
     "checklistName": "Чеклист 3"
   }
 ]
-
-
 const itemChecklistRelations = [
   {
     "itemNum": 5,
@@ -110,6 +108,8 @@ const itemChecklistRelations = [
     "checklistNum": 2
   }
 ]
+*/
+const userid = 1
 
 @Injectable({
   providedIn: 'root'
@@ -119,14 +119,18 @@ export class MyGearService {
   constructor(private http: HttpClient) { }
 
   getMyGearList(){
-    return this.http.get<gearItem[]>('api/gearitem');
+    return this.http.get<gearItem[]>(`api/user/${userid}/gearitems`);
   }
 
   getMyChecklists(){
-    return this.http.get<checklistModel[]>('api/checklists')
+    return this.http.get<checklistModel[]>(`api/user/${userid}/checklists`)
   }
 
   getRelations(){
     return this.http.get<relationshipsModel[]>('api/rels')
+  }
+
+  getItemsForChecklist(checklistId: number){
+    return this.http.get<gearItem[]>(`api/checklist/${checklistId}/gearitems`)
   }
 }

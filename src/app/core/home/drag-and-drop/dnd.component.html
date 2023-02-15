@@ -1,4 +1,6 @@
-<div class="wrapper dnd-boundary" *ngIf="gearItemsLoaded | async">
+<div class="wrapper dnd-boundary"
+*ngIf="gearItemsLoaded | async"
+>
   <div class="myGear checklist">
     <div class="header">
       My Gear
@@ -12,7 +14,7 @@
       My Checklists
     </div>
     <div class="group" *ngFor="let checklist of checklists">
-      <app-checklist [checklist]=checklist [items]=checklistsWithItems[checklist.checklistNum]></app-checklist>
+      <app-checklist [checklist]=checklist [items]=checklistsWithItems[checklist.checklistid]></app-checklist>
     </div>
   </div>
 </div>
