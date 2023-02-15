@@ -14,3 +14,11 @@
 .item{
   margin-top: 0.5em;
 }
+
+.no-items-placeholder{
+  display: block;
+  background: rgba(164, 94, 78, 1);
+  padding: 10px;
+  border-radius: 10px;
+  height: 1em;
+}

@@ -1,18 +1,20 @@
 <div class="group">
   <div class="title">
-    {{checklist.checklistName}}
+    {{checklist.checklistname}}
     <span class="switches expand"></span>
     <span class="switches dnd"></span>
   </div>
   <div
     class="items"
-    id="dnd-checklist-{{checklist.checklistNum}}"
+    id="dnd-checklist-{{checklist.checklistid}}"
     cdkDropList
     [cdkDropListData]="items"
     (cdkDropListDropped)="drop($event)"
     [cdkDropListConnectedTo]="['dnd-group']">
-    <div class="item" *ngFor="let item of items">
+    <div class="item" *ngFor="let item of checkListitems">
       <app-item [item]=item></app-item>
+    </div>
+    <div class="item no-items-placeholder" *ngIf="!items">
     </div>
   </div>
 </div>

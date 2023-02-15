@@ -11,6 +11,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { ItemComponent } from './core/home/drag-and-drop/item/item.component';
 import { ChecklistComponent } from './core/home/drag-and-drop/checklist/checklist.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { RequestInterceptor } from './shared/interceptors/request.interceptor';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,10 +27,13 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     MatExpansionModule,
     DragDropModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
