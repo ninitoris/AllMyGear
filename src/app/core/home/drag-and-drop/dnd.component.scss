@@ -1,20 +1,18 @@
 @import "/src/assets/shared/global.scss";
 
-.wrapper{
+.wrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.myGear{
-
+.myGear {
 }
 
-.myChecklists{
-
+.myChecklists {
 }
 
-.checklist{
+.checklist {
   color: white;
   display: inline-block;
   border: $dev-border solid white;
@@ -24,15 +22,65 @@
   min-height: 500px;
 }
 
-.header{
+.header {
   border: $dev-border solid yellow;
   color: white;
   font-family: "Cabin-Regular";
   font-weight: 400;
   font-size: 18px;
   padding: 1.5em 1em;
+  position: relative;
 }
 
-.group{
+.group {
   margin: 0 0.5em 0.5em;
+}
+
+.triangle {
+  position: absolute;
+  background-color: #bc6d5a;
+  text-align: left;
+  left: calc(50% - 1em);
+  top: 0;
+  cursor: pointer;
+}
+.triangle:before,
+.triangle:after {
+  content: "";
+  position: absolute;
+  background-color: inherit;
+}
+.triangle,
+.triangle:before,
+.triangle:after {
+  width: 2em;
+  height: 2em;
+  border-top-right-radius: 30%;
+}
+
+.triangle {
+  transform: rotate(120deg) skewX(-30deg) scale(1, 0.866);
+}
+.triangle:before {
+  transform: rotate(-135deg) skewX(-45deg) scale(1.414, 0.707)
+    translate(0, -50%);
+}
+.triangle:after {
+  transform: rotate(135deg) skewY(-45deg) scale(0.707, 1.414) translate(50%);
+}
+
+$triangleWidth: 1em;
+.triangleAddSign {
+  position: absolute;
+  width: $triangleWidth;
+  height: $triangleWidth;
+  top: -15%;
+  left: calc(50% - $triangleWidth/2);
+  font-size: 3em;
+  text-align: center;
+  transform: rotate(-180deg);
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+  cursor: pointer;
 }

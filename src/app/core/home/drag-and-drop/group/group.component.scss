@@ -1,6 +1,5 @@
 .group {
   background: rgba(188, 109, 90, 1);
-  padding: 0.5em;
   color: black;
   font-family: "Cabin-Regular";
   font-weight: 400;
@@ -9,4 +8,8 @@
 
 .item{
   margin-top: 0.5em;
+}
+
+.items{
+  padding: 0 0.5em 0.5em;
 }

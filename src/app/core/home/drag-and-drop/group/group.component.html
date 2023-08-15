@@ -1,4 +1,4 @@
-<div class="group">
+<!-- <div class="group">
   <div class="title">
     {{groupname}}
     <span class="switches expand"></span>
@@ -15,5 +15,22 @@
       <app-item [item]=item></app-item>
     </div>
   </div>
-</div>
-
+</div> -->
+<mat-expansion-panel class="group">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      {{groupname}}
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <div
+    class="items"
+    id="dnd-group"
+    cdkDropList
+    [cdkDropListData]="items"
+    (cdkDropListDropped)="drop($event)"
+    [cdkDropListConnectedTo]="allchecklists">
+    <div class="item" *ngFor="let item of items">
+      <app-item [item]=item></app-item>
+    </div>
+  </div>
+</mat-expansion-panel>
